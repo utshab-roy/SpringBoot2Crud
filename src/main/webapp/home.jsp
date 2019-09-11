@@ -10,25 +10,33 @@
 </head>
 <body>
 <div class="container">
-    <div class="col-6">
+    <div class="row">
+        <div class="col-6">
+            <h3>Add new post</h3>
+            <form action="addPost">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" class="form-control" id="title" placeholder="Enter title">
+                </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <input type="text" name="content" class="form-control" id="content" placeholder="Post content">
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+        </div>
 
-        <h3>Add new post</h3>
-        <form action="addPost">
-            <%--            <div class="form-group">--%>
-            <%--                <label for="id">ID</label>--%>
-            <%--                <input type="number" name="id" class="form-control" id="id" placeholder="Enter id">--%>
-            <%--            </div>--%>
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" name="title" class="form-control" id="title" placeholder="Enter title">
-            </div>
-            <div class="form-group">
-                <label for="content">Content</label>
-                <input type="text" name="content" class="form-control" id="content" placeholder="Post content">
-            </div>
-            <button type="submit" class="btn btn-info">Submit</button>
-        </form>
-
+        <div class="col-6">
+            <h3>Get Post By Post ID</h3>
+            <form action="getPost">
+                <div class="form-group">
+                    <label for="id">ID</label>
+                    <input type="number" name="id" class="form-control" id="id"
+                           placeholder="Enter post id to see the post details..">
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+        </div>
     </div>
 </div>
 </body>
