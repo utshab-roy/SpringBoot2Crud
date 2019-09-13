@@ -16,22 +16,31 @@ public class PostController {
 
     @RequestMapping("/")
     public String home() {
-        return "home";
+        return "post/home";
     }
 
     @RequestMapping("/addPost")
     public String addPost(Post post) {
         repo.save(post);
-        return "home";
+        return "post/home";
     }
 
     @RequestMapping("/getPost")
     public ModelAndView addPost(@RequestParam int id) {
         // setting the view name using constructor
-        ModelAndView mv = new ModelAndView("showPost");
+        ModelAndView mv = new ModelAndView("post/showPost");
         // orElse part is there because to handel the null value, or we could make it optional
         Post post = repo.findById(id).orElse(new Post());
         mv.addObject(post);
+        return mv;
+    }
+
+    @RequestMapping("/getAllPosts")
+    public ModelAndView allPost() {
+        // setting the view name using constructor
+        ModelAndView mv = new ModelAndView("post/index");
+        Iterable<Post> posts = repo.findAll();
+        mv.addObject("posts", posts);
         return mv;
     }
 }

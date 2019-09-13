@@ -13,7 +13,7 @@
     <h3>Details of the post of id: ${post.id}</h3>
     <p>${post}</p>
 
-    <a href="/" class="btn btn-primary">Go Back to home page</a>
+    <a href="/" class="btn btn-primary">Home page</a>
 </div>
 </body>
 </html>

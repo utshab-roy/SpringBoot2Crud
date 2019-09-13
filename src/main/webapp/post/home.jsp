@@ -38,6 +38,10 @@
             </form>
         </div>
     </div>
+    <div class="col-6 offset-3 mt-3">
+        <a href="/getAllPosts" class="btn btn-block btn-secondary">All Posts</a>
+    </div>
+
 </div>
 </body>
 </html>
