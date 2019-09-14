@@ -4,7 +4,9 @@ import com.basic.crudapp.dao.PostRepo;
 import com.basic.crudapp.model.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -41,6 +43,16 @@ public class PostController {
         ModelAndView mv = new ModelAndView("post/index");
         Iterable<Post> posts = repo.findAll();
         mv.addObject("posts", posts);
+        return mv;
+    }
+
+    @RequestMapping(value = "/posts/{id}/show", method = RequestMethod.PUT)
+    public ModelAndView showPost(@PathVariable("id") int id) {
+        // setting the view name using constructor
+        ModelAndView mv = new ModelAndView("post/showPost");
+        Post post = repo.findById(id).orElse(new Post());
+        System.out.println(post);
+        mv.addObject("post", post);
         return mv;
     }
 }
