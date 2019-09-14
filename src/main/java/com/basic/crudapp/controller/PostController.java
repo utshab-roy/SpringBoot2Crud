@@ -30,7 +30,7 @@ public class PostController {
     @RequestMapping("/getPost")
     public ModelAndView addPost(@RequestParam int id) {
         // setting the view name using constructor
-        ModelAndView mv = new ModelAndView("post/showPost");
+        ModelAndView mv = new ModelAndView("/post/show");
         // orElse part is there because to handel the null value, or we could make it optional
         Post post = repo.findById(id).orElse(new Post());
         mv.addObject(post);
@@ -40,18 +40,17 @@ public class PostController {
     @RequestMapping("/getAllPosts")
     public ModelAndView allPost() {
         // setting the view name using constructor
-        ModelAndView mv = new ModelAndView("post/index");
+        ModelAndView mv = new ModelAndView("/post/index");
         Iterable<Post> posts = repo.findAll();
         mv.addObject("posts", posts);
         return mv;
     }
 
-    @RequestMapping(value = "/posts/{id}/show", method = RequestMethod.PUT)
+    @RequestMapping(value = "/posts/{id}/show", method = RequestMethod.GET)
     public ModelAndView showPost(@PathVariable("id") int id) {
         // setting the view name using constructor
-        ModelAndView mv = new ModelAndView("post/showPost");
+        ModelAndView mv = new ModelAndView("/post/show");
         Post post = repo.findById(id).orElse(new Post());
-        System.out.println(post);
         mv.addObject("post", post);
         return mv;
     }
