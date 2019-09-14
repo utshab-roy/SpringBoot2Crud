@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-6">
             <h3>Add new post</h3>
-            <form action="addPost">
+            <form action="addPost" method="post">
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" name="title" class="form-control" id="title" placeholder="Enter title">
@@ -28,7 +28,7 @@
 
         <div class="col-6">
             <h3>Get Post By Post ID</h3>
-            <form action="getPost">
+            <form action="getPost" method="get">
                 <div class="form-group">
                     <label for="id">ID</label>
                     <input type="number" name="id" class="form-control" id="id"

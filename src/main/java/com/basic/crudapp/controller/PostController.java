@@ -21,14 +21,14 @@ public class PostController {
         return "post/home";
     }
 
-    @RequestMapping("/addPost")
+    @RequestMapping(value = "/addPost", method = RequestMethod.POST)
     public String addPost(Post post) {
         repo.save(post);
         return "post/home";
     }
 
     @RequestMapping("/getPost")
-    public ModelAndView addPost(@RequestParam int id) {
+    public ModelAndView getPost(@RequestParam int id) {
         // setting the view name using constructor
         ModelAndView mv = new ModelAndView("/post/show");
         // orElse part is there because to handel the null value, or we could make it optional
